@@ -4,8 +4,15 @@ import 'package:shop_app/screens/meal_screen.dart';
 import 'package:shop_app/widgets/category_grid_item_widget.dart';
 import 'package:shop_app/models/category_model.dart';
 
+import '../models/meal.dart';
+
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+  CategoriesScreen({
+    super.key,
+    required this.onToggle,
+  });
+
+  void Function(Meal meal) onToggle;
 
   void _selectedCategory(BuildContext context, CategoryModel category) {
     final filterMeal = dummyMeals
@@ -16,6 +23,7 @@ class CategoriesScreen extends StatelessWidget {
         builder: ((context) => MealScreen(
               meals: filterMeal,
               title: category.title,
+              onToggle: onToggle,
             )),
       ),
     );
