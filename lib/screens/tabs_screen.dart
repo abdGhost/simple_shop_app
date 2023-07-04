@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/categories_screen.dart';
 import 'package:shop_app/screens/meal_screen.dart';
+import 'package:shop_app/widgets/main_drawer_widget.dart';
 
 import '../models/meal.dart';
 
@@ -64,6 +65,7 @@ class _TabsScreenState extends State<TabsScreen> {
       });
     }
     return Scaffold(
+      drawer: const MainDrawerWidget(),
       appBar: AppBar(
         title: Text(
           activePageTitle,
