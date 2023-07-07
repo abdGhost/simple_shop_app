@@ -3,6 +3,7 @@ import 'package:shop_app/models/meal.dart';
 import 'package:shop_app/widgets/meal_item_traits.dart';
 import 'package:transparent_image/transparent_image.dart';
 
+// ignore: must_be_immutable
 class MealItem extends StatelessWidget {
   MealItem({
     super.key,

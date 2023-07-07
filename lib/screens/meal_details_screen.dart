@@ -9,11 +9,8 @@ class MealDetailScreen extends ConsumerWidget {
   const MealDetailScreen({
     super.key,
     required this.meal,
-    // required this.onTogglefavorite,
   });
   final Meal meal;
-
-  // void Function(Meal meal) onTogglefavorite;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,7 +22,6 @@ class MealDetailScreen extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: () {
-              // onTogglefavorite(meal);
               final wasAdded = ref
                   .read(favioriteMealsProvider.notifier)
                   .toggleMealFavoriteStatus(meal);
