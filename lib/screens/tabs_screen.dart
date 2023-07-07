@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shop_app/data/dummy_data.dart';
 import 'package:shop_app/provider/favorite_provider.dart';
 import 'package:shop_app/provider/meal_provider.dart';
 import 'package:shop_app/screens/categories_screen.dart';
@@ -8,7 +7,7 @@ import 'package:shop_app/screens/filters_screen.dart';
 import 'package:shop_app/screens/meal_screen.dart';
 import 'package:shop_app/widgets/main_drawer_widget.dart';
 
-import '../models/meal.dart';
+import '../provider/fliter_provider.dart';
 
 const kInitialFliter = {
   Fliters.gultenFree: false,
