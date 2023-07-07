@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shop_app/provider/favorite_provider.dart';
+import 'package:shop_app/provider/fliter_provider.dart';
 
 import '../models/meal.dart';
 
@@ -16,6 +17,8 @@ class MealDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final filterMeals = ref.watch(filteredMealProvier);
+    final isFilter = filterMeals.contains(meal);
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
@@ -35,9 +38,9 @@ class MealDetailScreen extends ConsumerWidget {
                 ),
               );
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.favorite,
-              color: Colors.white,
+              color: isFilter ? Colors.white : Colors.red,
             ),
           ),
         ],

@@ -27,7 +27,7 @@ class TabsScreen extends ConsumerStatefulWidget {
 class _TabsScreenState extends ConsumerState<TabsScreen> {
   int _selectedPageIndex = 0;
   // final List<Meal> _favoriteMeal = [];
-  Map<Fliters, bool> _selectedFilters = kInitialFliter;
+  // Map<Fliters, bool> _selectedFilters = kInitialFliter;
 
   // void _showFavoriteMessages(String message) {
   //   ScaffoldMessenger.of(context).clearSnackBars();
@@ -68,37 +68,24 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
       //     builder: (ctx) => const FiltersScreen(),
       //   ),
       // );
-      final result = await Navigator.of(context).push<Map<Fliters, bool>>(
+      await Navigator.of(context).push<Map<Fliters, bool>>(
         MaterialPageRoute(
-          builder: (ctx) => FiltersScreen(
-            currentFlits: _selectedFilters,
-          ),
+          builder: (ctx) => const FiltersScreen(
+              // currentFlits: _selectedFilters,
+              ),
         ),
       );
-      setState(() {
-        _selectedFilters = result ?? kInitialFliter;
-      });
+      // setState(() {
+      //   _selectedFilters = result ?? kInitialFliter;
+      // });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final meals = ref.watch(mealProvider);
-    final avaiableFliters = meals.where((meal) {
-      if (_selectedFilters[Fliters.gultenFree]! && !meal.isGlutenFree) {
-        return false;
-      }
-      if (_selectedFilters[Fliters.lactoseFree]! && !meal.isLactoseFree) {
-        return false;
-      }
-      if (_selectedFilters[Fliters.vegeterian]! && !meal.isVegetarian) {
-        return false;
-      }
-      if (_selectedFilters[Fliters.vegan]! && !meal.isVegan) {
-        return false;
-      }
-      return true;
-    }).toList();
+    // final meals = ref.watch(mealProvider);
+    // final activeFilter = ref.watch(filterProvider);
+    final avaiableFliters = ref.watch(filteredMealProvier);
 
     Widget activePage = CategoriesScreen(
       // onToggle: _toggleMealFavorites,
